@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Ingredient } from '../models/ingredient.service';
+import { IngredientService } from '../services/ingredient.service';
+
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  ingredients: Ingredient[];
 
-  constructor() {}
-
+  constructor(private ingredientService: IngredientService) {
+    this.ingredients = this.ingredientService.getIngredients();
+  }
 }

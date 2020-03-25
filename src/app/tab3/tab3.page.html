@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      EN BUSCA
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,15 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Ingredientes para buscar</ion-label>
+    </ion-list-header>
+    <div *ngFor="let ingredient of ingredients; index as i">
+        <ion-item *ngIf="!ingredient.active">
+          <img src={{ingredient.imagen}} width="100px" height="50px">
+          <ion-label>{{ingredient.name}}</ion-label>
+        </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

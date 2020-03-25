@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>NUEVO INGREDIENTE</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="ion-padding" [formGroup] ="myForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre del ingrediente</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('name').errors && (myForm.get('name').dirty || 
+      myForm.get('name').touched || submitted)">
+        <ion-label color="danger">Nombre erroneo</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Imagen</ion-label>
+        <ion-input type="text" formControlName="imagen"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('imagen').errors && (myForm.get('imagen').dirty || 
+      myForm.get('imagen').touched || submitted)">
+        <ion-label color="danger">URL erroneo</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="saveIngredient()" expand="block" shape="round">
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>
